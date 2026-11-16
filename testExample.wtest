@@ -1,9 +1,15 @@
-import example.pepita
+import paquetes.*
+import programa.*
+import estrategias.*
 
-describe "group of tests for pepita" {
+describe "un agente determina correctamente el paquete" {
+  const vendedor = new Agente(deuda = 100,cantidadPaquetesVendidos = 0, estrategia = navegante)
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  test "agente 007 ofrece como mejor plan el crucero" {
+    const alma = new Alma(dinero = 100, accionesBuenas= 51)
+    const paquete = vendedor.paqueteParaOfrecer(alma)
+
+    assert.equals(51, paquete.valorBasico())
   }
 
 }
